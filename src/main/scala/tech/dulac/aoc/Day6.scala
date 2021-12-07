@@ -4,8 +4,6 @@ import scala.annotation.tailrec
 
 object Day6 extends App {
 
-  val count = { case (i: Int, v: List[Int]) => (i, v.size) }
-
   def nextState = (s: Map[Int, Long]) => {
     val zeros  = s.getOrElse(0, 0L)
     val sevens = s.getOrElse(7, 0L)
@@ -20,8 +18,8 @@ object Day6 extends App {
     case remains                => simulateForDays(remains - 1)(nextState(state))
   }
 
-  val part1 = simulateForDays(80)(input.groupBy(identity).map(count)).values.sum
-  val part2 = simulateForDays(256)(input.groupBy(identity).map(count)).values.sum
+  val part1 = simulateForDays(80)(input.groupBy(identity).map { case (i, v) => (i, v.size) }).values.sum
+  val part2 = simulateForDays(256)(input.groupBy(identity).map { case (i, v) => (i, v.size) }).values.sum
 
   println(part1)
   println(part2)

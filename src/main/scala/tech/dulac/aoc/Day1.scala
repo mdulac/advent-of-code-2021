@@ -2,7 +2,15 @@ package tech.dulac.aoc
 
 object Day1 extends App {
 
-  val values = List(
+  def countFirstLowerThanSecond(v: List[Int]) = v.zip(v.tail).count { case (f, s) => f < s }
+
+  val part1 = countFirstLowerThanSecond(input)
+  val part2 = countFirstLowerThanSecond(input.sliding(3).toList.map(_.sum))
+
+  println(part1)
+  println(part2)
+
+  lazy val input = List(
     132, 146, 153, 175, 180, 160, 154, 160, 161, 160, 161, 169, 161, 164, 166, 196, 193, 199, 198, 208, 209, 211, 223,
     226, 224, 225, 227, 230, 229, 242, 241, 246, 243, 245, 286, 285, 284, 267, 274, 275, 267, 295, 296, 302, 304, 305,
     281, 287, 293, 295, 290, 285, 286, 285, 287, 289, 283, 289, 295, 305, 304, 315, 317, 334, 338, 342, 337, 338, 341,
@@ -105,13 +113,5 @@ object Day1 extends App {
     4398, 4397, 4408, 4423, 4447, 4443, 4448, 4447, 4448, 4447, 4448, 4458, 4464, 4463, 4469, 4468, 4471, 4472, 4473,
     4477, 4449, 4445, 4436, 4437, 4442, 4446, 4450, 4453, 4452, 4456, 4462, 4460, 4465, 4473, 4474
   )
-
-  def countFirstLowerThanSecond(v: List[Int]) = v.zip(v.tail).count { case (f, s) => f < s }
-
-  val part1 = countFirstLowerThanSecond(values)
-  val part2 = countFirstLowerThanSecond(values.sliding(3).toList.map(_.sum))
-
-  println(part1)
-  println(part2)
 
 }

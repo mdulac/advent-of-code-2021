@@ -6,7 +6,7 @@ object Day2 extends App {
   val Down    = "down ([0-9])".r
   val Up      = "up ([0-9])".r
 
-  val part1 = values.foldLeft(0L -> 0L) { case ((position, depth), command) =>
+  val part1 = input.foldLeft(0L -> 0L) { case ((position, depth), command) =>
     command match {
       case Forward(x) => (position + x.toInt) -> depth
       case Down(x)    => position             -> (depth + x.toInt)
@@ -14,7 +14,7 @@ object Day2 extends App {
     }
   }
 
-  val part2 = values.foldLeft((0L, 0L, 0L)) { case ((aim, position, depth), command) =>
+  val part2 = input.foldLeft((0L, 0L, 0L)) { case ((aim, position, depth), command) =>
     command match {
       case Forward(x) => (aim, position + x.toInt, depth + aim * x.toInt)
       case Down(x)    => (aim + x.toInt, position, depth)
@@ -25,7 +25,7 @@ object Day2 extends App {
   println(part1._1 * part1._2)
   println(part2._2 * part2._3)
 
-  lazy val values = List(
+  lazy val input = List(
     "forward 6",
     "down 2",
     "forward 2",

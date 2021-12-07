@@ -5,7 +5,7 @@ import scala.annotation.tailrec
 
 object Day3 extends App {
 
-  val sums = values.foldLeft((0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)) {
+  val sums = input.foldLeft((0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)) {
     case ((_0, _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11), bin) =>
       (
         _0 + bin(0).toString.toInt,
@@ -23,7 +23,7 @@ object Day3 extends App {
       )
   }
 
-  def convertToByte(value: Int)  = if (value > (values.size / 2)) "1" else "0"
+  def convertToByte(value: Int)  = if (value > (input.size / 2)) "1" else "0"
   def invertBytes(value: String) = value.map(c => if (c == '0') '1' else '0')
 
   val result = List(
@@ -58,12 +58,12 @@ object Day3 extends App {
   private val leastCommon: Filter[String] = x => y => if (x.size < y.size) x else if (x.size > y.size) y else x
 
   val part1 = parseInt(result, 2) * parseInt(invertBytes(result), 2)
-  val part2 = parseInt(process(0)(values)(mostCommon), 2) * parseInt(process(0)(values)(leastCommon), 2)
+  val part2 = parseInt(process(0)(input)(mostCommon), 2) * parseInt(process(0)(input)(leastCommon), 2)
 
   println(part1)
   println(part2)
 
-  lazy val values = List(
+  lazy val input = List(
     "110000000001",
     "010011111011",
     "111000011110",
