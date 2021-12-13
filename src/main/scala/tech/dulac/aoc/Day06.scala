@@ -2,7 +2,7 @@ package tech.dulac.aoc
 
 import scala.annotation.tailrec
 
-object Day6 extends App {
+object Day06 extends App {
 
   def nextState = (s: Map[Int, Long]) => {
     val zeros  = s.getOrElse(0, 0L)

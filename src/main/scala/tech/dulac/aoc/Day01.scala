@@ -1,6 +1,6 @@
 package tech.dulac.aoc
 
-object Day1 extends App {
+object Day01 extends App {
 
   def countFirstLowerThanSecond(v: List[Int]) = v.zip(v.tail).count { case (f, s) => f < s }
 

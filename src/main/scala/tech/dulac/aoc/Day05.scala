@@ -4,7 +4,7 @@ import java.lang.Math.max
 import java.lang.Math.min
 import scala.collection.immutable.Range.inclusive
 
-object Day5 extends App {
+object Day05 extends App {
 
   val horizontalAndVerticalPoints = input.collect {
     case s"$x1,$y1 -> $x2,$y2" if (x1.toInt == x2.toInt) || (y1.toInt == y2.toInt) =>

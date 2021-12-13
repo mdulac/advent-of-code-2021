@@ -2,17 +2,20 @@ package tech.dulac.aoc
 
 import scala.annotation.tailrec
 
-object Day9 extends App {
+object Day09 extends App {
 
   private val validIndex = (i: Int) => i > 0 && i < values.length
 
-  def getNeighboursFor(index: Int) =
-    if ((index + 1) % input.head.length == 0)
-      List(index - 1, index - input.head.length, index + input.head.length).filter(validIndex)
-    else if (index % input.head.length == 0)
-      List(index + 1, index - input.head.length, index + input.head.length).filter(validIndex)
-    else
-      List(index - 1, index + 1, index - input.head.length, index + input.head.length).filter(validIndex)
+  def getNeighboursFor(index: Int) = {
+    val right  = index + 1
+    val left   = index - 1
+    val top    = index - input.head.length
+    val bottom = index + input.head.length
+
+    if ((index + 1) % input.head.length == 0) List(left, top, bottom).filter(validIndex)
+    else if (index % input.head.length == 0) List(right, top, bottom).filter(validIndex)
+    else List(left, right, top, bottom).filter(validIndex)
+  }
 
   def isLowPoint(index: Int) = getNeighboursFor(index).map(values(_)).forall(_ > values(index))
 

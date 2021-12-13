@@ -1,6 +1,6 @@
 package tech.dulac.aoc
 
-object Day8 extends App {
+object Day08 extends App {
 
   final case class EncryptionKey(
       top: List[Char],

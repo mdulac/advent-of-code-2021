@@ -1,6 +1,6 @@
 package tech.dulac.aoc
 
-object Day2 extends App {
+object Day02 extends App {
 
   val Forward = "forward ([0-9])".r
   val Down    = "down ([0-9])".r

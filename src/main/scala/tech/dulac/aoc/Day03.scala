@@ -3,7 +3,7 @@ package tech.dulac.aoc
 import java.lang.Integer.parseInt
 import scala.annotation.tailrec
 
-object Day3 extends App {
+object Day03 extends App {
 
   val sums = input.foldLeft((0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)) {
     case ((_0, _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11), bin) =>

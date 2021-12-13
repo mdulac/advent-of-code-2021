@@ -1,6 +1,6 @@
 package tech.dulac.aoc
 
-object Day7 extends App {
+object Day07 extends App {
 
   val allPositions = Range.inclusive(0, input.max)
 

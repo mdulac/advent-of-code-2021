@@ -2,7 +2,7 @@ package tech.dulac.aoc
 
 import scala.annotation.tailrec
 
-object Day4 extends App {
+object Day04 extends App {
 
   val values = input.head.split(",").map(_.toInt).toList
 
